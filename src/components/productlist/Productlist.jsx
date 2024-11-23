@@ -12,7 +12,8 @@ function RenderProduct (props){
                 <div className='p-3'>
                     <a href='#!' className='text-[#333f48] dark:text-white block min-h-[48px] hover:text-red-500'>{productData.name}</a>
                     <span className='text-sm text-gray-600 dark:text-white'>{productData.materials ?? `Chất liệu thiên nhiên`}</span>
-                    <div className='flex justify-between items-center mt-1'>
+                    <p className='text-sm text-gray-600 dark:text-white'>Còn: <span className='font-bold'>{productData.stock}</span> sản phẩm</p>
+                    <div className='flex justify-between items-center my-1'>
                         <p className='font-bold text-xl text-red-600 underline'>{productData.final_price.toLocaleString('vi', {style : 'currency', currency : 'VND'})}</p>
                         <span className='text-sm text-gray-400 dark:text-white'>SKU: {productData.sku}</span>
                     </div>
