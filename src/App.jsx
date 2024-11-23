@@ -1,33 +1,36 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React, { useState, useEffect } from 'react'
+import Header from './components/header/Header'
+import Footer from './components/footer/Footer'
+import Banner from './components/banner/Banner'
+import Productlist from './components/productlist/Productlist'
 
-function App() {
-  const [count, setCount] = useState(0)
 
+const App = () => {
+  const [state, setState] = useState(true);
+  const [isDarkMode, setIsDarkMode] = useState(false);
+
+  useEffect(() => {
+    if (isDarkMode) {
+      document.body.classList.add('dark');  
+    } else {
+      document.body.classList.remove('dark');  
+    }
+  }, [isDarkMode]);
+
+  const toggleDarkMode = () => {
+    setIsDarkMode(prev => !prev)
+  };
+
+  function changeState(){
+    setState(prev => !prev)
+  }
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <Header isDarkMode={isDarkMode} toggleDarkMode={toggleDarkMode}/>
+      <Banner/>
+      <button onClick={changeState} className="border px-10 py-3 rounded-md bg-[#333f48] text-white font-bold mt-5 ml-28">{state ? `Ẩn sản phảm` : `Hiển thị sản phẩm`}</button>
+      {state && <Productlist/>}  
+      <Footer/>
     </>
   )
 }
