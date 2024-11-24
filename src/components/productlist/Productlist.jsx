@@ -32,20 +32,20 @@ const Productlist = () => {
     }
 
   return (
-    <>
-        <section className='max-w-[1300px] mx-auto my-5 '>
+    <section className='dark:bg-black'>
+        <div className='max-w-[1300px] mx-auto py-5 '>
             <h2 className='text-4xl mb-5 text-center font-semibold text-text_colors dark:text-white'>Sản phẩm mới nhất</h2>
             <div className='grid grid-cols-4 gap-7 gap-y-10'>
                 {datas.slice(0, number).map((item,index)=>{
                     return <RenderProduct key={index} data={item}/>
                 })}
             </div>
-        </section>
+        </div>
         {number <= datas.length && (<div className='flex flex-col items-center justify-center'>
             <button onClick={numberProduct} className='border px-10 py-3 rounded-md bg-[#333f48] text-white font-bold'> Xem thêm</button>
             <p className='mt-2 text-[#333f48] dark:text-white text-[12px]'>Hiển thị {number} trên tổng sổ {datas.length} sản phẩm</p>
         </div> )}
-    </>
+    </section>
   )
 }
 

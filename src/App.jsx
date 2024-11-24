@@ -6,32 +6,26 @@ import Productlist from './components/productlist/Productlist'
 
 
 const App = () => {
-  const [state, setState] = useState(true);
+  const [showBtn, setShowBtn] = useState(true);
   const [isDarkMode, setIsDarkMode] = useState(false);
-
-  useEffect(() => {
-    if (isDarkMode) {
-      document.body.classList.add('dark');  
-    } else {
-      document.body.classList.remove('dark');  
-    }
-  }, [isDarkMode]);
 
   const toggleDarkMode = () => {
     setIsDarkMode(prev => !prev)
   };
 
   function changeState(){
-    setState(prev => !prev)
+    setShowBtn(prev => !prev)
   }
   return (
-    <>
+    <div className={isDarkMode ? `dark` : `light`}>
       <Header isDarkMode={isDarkMode} toggleDarkMode={toggleDarkMode}/>
       <Banner/>
-      <button onClick={changeState} className="border px-10 py-3 rounded-md bg-[#333f48] text-white font-bold mt-5 ml-28">{state ? `Ẩn sản phảm` : `Hiển thị sản phẩm`}</button>
+      <div className='dark:bg-black'>
+        <button onClick={changeState} className="border px-10 py-3 rounded-md bg-[#333f48] text-white font-bold mt-5 ml-28">{state ? `Ẩn sản phảm` : `Hiển thị sản phẩm`}</button>
+      </div>
       {state && <Productlist/>}  
       <Footer/>
-    </>
+    </div>
   )
 }
 

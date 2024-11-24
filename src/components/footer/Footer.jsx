@@ -7,7 +7,7 @@ import bct from "../../assets/image/bocongthuong.png"
 const Footer = () => {
   return (
     <footer className="dark:bg-[#121212]">
-      <hr className="my-5" />
+      <hr className="py-5" />
       <div className="max-w-[1300px] mx-auto  text-text_colors dark:text-white">
         <div className="flex gap-20">
           <div className="w-[30%]">
