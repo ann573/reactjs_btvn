@@ -5,14 +5,8 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {
-      colors: {
-        "text_colors" : "#333f48"
-      }
-    },
+    extend: {},
   },
-  darkMode: 'class',
   plugins: [],
 }
-
 

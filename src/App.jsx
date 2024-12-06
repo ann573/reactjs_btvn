@@ -1,32 +1,34 @@
-import React, { useState, useEffect } from 'react'
-import Header from './components/header/Header'
-import Footer from './components/footer/Footer'
-import Banner from './components/banner/Banner'
-import Productlist from './components/productlist/Productlist'
+import "./App.css";
+import { Routes, Route } from "react-router-dom";
+import HomePage from "./page/HomePage";
+import DashBoard from "./page/admin/DashBoard";
+import ProductTable from "./page/admin/ProductTable";
+import ProductForm from "./page/admin/ProductForm";
+import NotFound from "./page/NotFound";
+import LayoutAdmin from './components/layouts/LayoutAdmin';
+import Register from './page/Register';
+import LayoutCustom from './components/layouts/LayoutCustom';
+import Login from './page/Login';
 
-
-const App = () => {
-  const [showBtn, setShowBtn] = useState(true);
-  const [isDarkMode, setIsDarkMode] = useState(false);
-
-  const toggleDarkMode = () => {
-    setIsDarkMode(prev => !prev)
-  };
-
-  function changeState(){
-    setShowBtn(prev => !prev)
-  }
+function App() {
   return (
-    <div className={isDarkMode ? `dark` : `light`}>
-      <Header isDarkMode={isDarkMode} toggleDarkMode={toggleDarkMode}/>
-      <Banner/>
-      <div className='dark:bg-black'>
-        <button onClick={changeState} className="border px-10 py-3 rounded-md bg-[#333f48] text-white font-bold mt-5 ml-28">{state ? `Ẩn sản phảm` : `Hiển thị sản phẩm`}</button>
-      </div>
-      {state && <Productlist/>}  
-      <Footer/>
-    </div>
-  )
+    <>
+      <Routes>
+        <Route path="/" element={<LayoutCustom />} >
+          <Route index element={<HomePage/>}/>  
+        </Route>  
+        <Route path="/admin" element={<LayoutAdmin />}> 
+          <Route index element={<DashBoard />} />  
+          <Route path="products" element={<ProductTable />} />  
+          <Route path="products/add" element={<ProductForm />} />  
+          <Route path="products/update/:id" element={<ProductForm />} />  
+        </Route>
+        <Route path="/register" element={<Register/>}/>
+        <Route path="/login" element={<Login/>}/>
+        <Route path="*" element={<NotFound />} />  
+      </Routes>
+    </>
+  );
 }
 
-export default App
+export default App;
