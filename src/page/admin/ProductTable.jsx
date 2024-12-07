@@ -32,7 +32,6 @@ const ProductTable = () => {
         setTotal(Math.ceil(data.length / perPage));
       })
       );
-      if (nowPage>total) nowPage = total
   };
   
   return (
