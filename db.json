@@ -1,33 +1,3 @@
 {
-  "users": [],
-  "products": [
-    {
-      "id": 1,
-      "title": "Sản phẩm A 123",
-      "price": 123,
-      "description": ""
-    },
-    {
-      "id": 2,
-      "title": "Sản phẩm B",
-      "price": 64738
-    },
-    {
-      "id": 4,
-      "title": "Sản phẩm C",
-      "price": 37209
-    },
-    {
-      "title": "Sản phẩm D",
-      "price": 1123123123,
-      "description": "đâsdsa\n\n\n",
-      "id": 5
-    },
-    {
-      "title": "Sản phẩm ABCXYZ",
-      "price": 456,
-      "description": "",
-      "id": 6
-    }
-  ]
+  "products": []
 }
